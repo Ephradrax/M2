@@ -13,7 +13,7 @@ btnamigos.addEventListener('click', function (){
 //  lsgg.innerHTML = ''
   let id = inputsearch.value
   inputsearch.value = ''
-  fetch('http://localhost:5000/amigos')
+  fetch(`http://localhost:5000/amigos${id}`)
   .then(r => r.json())
   .then(amigos =>{
     for (let i = 0; i < amigos.length; i++) {

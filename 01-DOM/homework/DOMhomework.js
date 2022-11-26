@@ -6,8 +6,9 @@ let toDoItems = []
 // Usando querySelector seleccionar dicho span por su id ('createdBy') y luego usando innerHTML
 // agregar tu nombre al final del texto actual. Ej: 'Aplicación creada por Franco'
 // Tu código acá:
-let gg = document.querySelector('#createdBy')
-gg.innerHTML += 'Drax';
+
+let gg = document.querySelector('#createdBy')//Al tratarse de un id siempre hay que utilizar # es la forma de señalar que es un id
+gg.innerHTML += ' Drax';
   
 
 
@@ -56,24 +57,30 @@ ToDo.prototype.completeToDo = function(){
 
 function buildToDo(todo, index) {
   // Tu código acá:
-  const toDoShell= document.createElement('div');
-  toDoShell.className = 'toDoShell';
-  const toDoText = document.createElement('span');
-toDoText.innerHTML = todo.description;
+  // punto 1
+  let toDoShell= document.createElement('div');
+  //punto 2
+  //toDoShell.className = 'toDoShell';
+  toDoShell.setAttribute('class', 'toDoShell')
+  //punto 3
+  let toDoText = document.createElement('span');
+  //punto 4
+  toDoText.innerHTML = todo.description;
+  //punto 5
+  toDoText.setAttribute('id', index)
+  //punto 6
+// if(todo.complete === true){
+//   //toDoText.classList.add('completeText')
+//   toDoText.setAttribute('class', 'completeText')
+// }
+ todo.complete ?  toDoText.setAttribute('class', 'completeText') : null //el ? es la funcion y el : es un else
 
-if(todo.complete === true){
-  toDoText.classList.add('completeText')
-  ff.checked = true
-}
+//paso 3 del ultimo 
 toDoText.addEventListener('click', completeToDo)
+//punto 7
 toDoShell.appendChild(toDoText);
 
-
-const ff = Inputtype='checkbox';
-ff.id = index;
-ff.addEventListener('click', completeToDo);
-ff.className = 'completeCheckbox'
-
+//punto 8
 return toDoShell;
 
 }
@@ -85,8 +92,9 @@ return toDoShell;
 
 function buildToDos(toDos) {
   // Tu código acá:
- let gg = toDos.map (buildToDo)
- return gg
+ let afg = toDos.map(buildToDo)
+ // let abc = toDos.map((todo, index) => buildToDo(todo, index))
+ return afg
 //return toDos.map((todo, index) => buildToDo.call(this, todo, index) );
 }
 
@@ -101,11 +109,16 @@ function buildToDos(toDos) {
 
 function displayToDos() {
   // Tu código acá:
-  const toDoContainer = document.querySelector('#toDoContainer')
+  //paso 1
+  let toDoContainer = document.getElementById('toDoContainer')
+  //let toDoContainer = document.querySelector('#toDoContainer')
+  //paso 2
   toDoContainer.innerHTML = '';
-  const toDos = buildToDos(toDoItems);
+  //paso 3
+  let frg = buildToDos(toDoItems);
+  //paso 4
  // toDos.forEach((todo) => toDoContainer.appendChild(todo));
-   toDos.map(todo => toDoContainer.appendChild(todo))
+   frg.map(todo => toDoContainer.appendChild(todo))
 }
 
 // La función 'addToDo' agregará un nuevo ToDo al array 'toDoItems'
@@ -119,10 +132,15 @@ function displayToDos() {
 
 function addToDo() {
   // Tu código acá:
-  let val = document.getElementById('toDoInput').value = ''
+  //paso 1
+  let val = document.getElementById('toDoInput').value
  const gg = new ToDo(val)
+ //paso 2
  toDoItems.push(gg)
+ //toDoItems.push(newTodo)
+ //paso 3
 document.getElementById('toDoInput').value = ''
+//paso 4
 displayToDos()
 }
 
@@ -134,7 +152,7 @@ displayToDos()
 // Tu código acá:
  //let jj = document.querySelector('addButton')
  let bb = document.getElementById('addButton')
-addEventListener('click', addToDo)
+bb.addEventListener('click', addToDo)
 //bb.onclick()
 
 
@@ -155,7 +173,10 @@ function completeToDo(event) {
   // DESCOMENTAR LA SIGUIENTE LINEA
   const index = event.target.id;
   // Tu código acá:
-  toDoItems.at(index).completeToDo()
+  //paso 1
+  //toDoItems.at(index).completeToDo()
+  toDoItems[index].completeToDo()
+  //paso 2
   displayToDos()
 
 
