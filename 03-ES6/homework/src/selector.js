@@ -9,11 +9,11 @@ var traverseDomAndCollectElements = function(matchFunc, startEl = document.body)
   // usa matchFunc para identificar elementos que matchien
 
   // TU CÓDIGO AQUÍ
-  if(matchFunc(startEl))  resultSet.push(startEl)
-
-   for(let i = 0;i< startEl.children.length;i++){
-    let res = traverseDomAndCollectElements(matchFunc,startEl.children[i])
-     resultSet = [...resultSet,...res]
+  if(matchFunc(startEl))  resultSet.push(startEl)// si matchFunc es igual a startEl entonces haceme un push de startEl en resultSet
+// el children te devuelve un arreglo y con .length los contas para iterar
+   for(let i = 0;i< startEl.children.length;i++){// el children.length busca los hijos del arbol startEl, por eso startEl.children 
+    let res = traverseDomAndCollectElements(matchFunc,startEl.children[i])// es una recursion para que evalue el children 0, luego el 1, luego el 2, etc;
+     resultSet = [...resultSet,...res]// el ... te crea una copia del parametro ej resultSet= [...resultSet], te hace otro resultSet y lo guarda en result set
    }
    return resultSet
 };
