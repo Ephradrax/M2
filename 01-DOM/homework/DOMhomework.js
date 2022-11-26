@@ -65,7 +65,7 @@ if(todo.complete === true){
   toDoText.classList.add('completeText')
   ff.checked = true
 }
-
+toDoText.addEventListener('click', completeToDo)
 toDoShell.appendChild(toDoText);
 
 
@@ -85,9 +85,9 @@ return toDoShell;
 
 function buildToDos(toDos) {
   // Tu código acá:
- //let gg = toDos.map (buildToDo)
- //return gg
-return toDos.map((todo, index) => buildToDo.call(this, todo, index) );
+ let gg = toDos.map (buildToDo)
+ return gg
+//return toDos.map((todo, index) => buildToDo.call(this, todo, index) );
 }
 
 // La función 'displayToDos' se va a encargar de que se vean los toDo's en pantalla
@@ -104,8 +104,8 @@ function displayToDos() {
   const toDoContainer = document.querySelector('#toDoContainer')
   toDoContainer.innerHTML = '';
   const toDos = buildToDos(toDoItems);
-  toDos.forEach((todo) => toDoContainer.appendChild(todo));
-  
+ // toDos.forEach((todo) => toDoContainer.appendChild(todo));
+   toDos.map(todo => toDoContainer.appendChild(todo))
 }
 
 // La función 'addToDo' agregará un nuevo ToDo al array 'toDoItems'
@@ -119,10 +119,11 @@ function displayToDos() {
 
 function addToDo() {
   // Tu código acá:
- const gg = new ToDo(toDoInput.value)
+  let val = document.getElementById('toDoInput').value = ''
+ const gg = new ToDo(val)
  toDoItems.push(gg)
-toDoInput = ('')
-displayToDos;
+document.getElementById('toDoInput').value = ''
+displayToDos()
 }
 
 // Agregar un 'Event Listener' para que cada vez que el botón 'AGREGAR' sea clickeado
@@ -131,8 +132,10 @@ displayToDos;
 //   2) Agregarle un 'click' event listener, pasándole la función 'addToDo' como callback
 
 // Tu código acá:
-document.querySelector('addButton')
+ //let jj = document.querySelector('addButton')
+ let bb = document.getElementById('addButton')
 addEventListener('click', addToDo)
+//bb.onclick()
 
 
 
@@ -152,7 +155,7 @@ function completeToDo(event) {
   // DESCOMENTAR LA SIGUIENTE LINEA
   const index = event.target.id;
   // Tu código acá:
-  toDoItems.at(index).completeToDo
+  toDoItems.at(index).completeToDo()
   displayToDos()
 
 
