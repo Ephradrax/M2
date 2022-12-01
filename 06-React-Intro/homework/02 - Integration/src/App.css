@@ -1,3 +1,44 @@
 .App {
+   background-image: url('https://www.xtrafondos.com/wallpapers/vertical/parado-en-el-borde-de-dos-mundos-6406.jpg');
+border: 10px;
+   align-items: center;
+   width: 100%;
    text-align: center;
+
+}
+
+.ImgReg{
+   width: 20%;
+
+
+   /* background-color: #F6F6F6;
+   border: #F1F1F1;
+   padding-top: 20px; */
+   
+
+}
+/* .btn{
+   display: flex;
+   align-items: flex-end;
+   color: red;
+
+   width: 2%;
+} */
+.editname{
+   display: flex;
+   align-items: flex-start;
+   color: red;
+
+}
+.editspecies{
+   display: flex;
+   align-items: flex-start;
+   color: red;
+
+}
+.editgender{
+   display: flex;
+   align-items: flex-start;
+   color: red;
+
 }

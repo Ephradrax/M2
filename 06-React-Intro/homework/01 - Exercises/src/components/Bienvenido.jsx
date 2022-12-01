@@ -6,7 +6,7 @@ const studentName = "Drax";
 const techSkills = ["Html", "Css", "JavaScript", "React", "Redux"];
 const alerts = { m1: "Aprobado", m2: "En curso" };
 
-const list = techSkills.map(list => <li>{list}</li>)
+const list = techSkills.map(list => <li  >{list}</li>)
 
 export default function Bienvenido() {
   // el código de tu componente acá

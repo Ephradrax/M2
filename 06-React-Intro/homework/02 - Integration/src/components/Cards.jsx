@@ -8,9 +8,10 @@ export default function Cards(props) {
             <Card
             key={i}
             name={c.name}
-            species={c-species}
+            species={c.species}
             gender={c.gender}
             image={c.image}
+            onClose={() => window.alert('Carta de personaje borrada')}
             />
          )
       }) }
